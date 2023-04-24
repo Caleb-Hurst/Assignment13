@@ -1,14 +1,20 @@
 package com.coderscampus.assignment13.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToMany;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Address {
+	
 	private Long userId;
 	private User user;
 	private String addressLine1;
@@ -17,6 +23,7 @@ public class Address {
 	private String region;
 	private String country;
 	private String zipCode;
+	
 	
 	@Id
 	public Long getUserId() {
@@ -28,7 +35,7 @@ public class Address {
 	
 	@OneToOne
 	@MapsId
-	@JoinColumn(name="user_id")
+	@JoinColumn(name="user_id") // refers to User object user_id
 	public User getUser() {
 		return user;
 	}

@@ -18,6 +18,7 @@ public class Account {
 	private Long accountId;
 	private String accountName;
 	private List<Transaction> transactions = new ArrayList<>();
+	
 	private List<User> users = new ArrayList<>();
 	
 	@Id @GeneratedValue(strategy = GenerationType.IDENTITY)

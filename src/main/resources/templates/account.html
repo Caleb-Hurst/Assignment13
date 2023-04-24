@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title></title>
+</head>
+<body>
+	<h1 th:if="${accountName == null}"
+		th:text="'Account #' + ${#lists.size(user.accounts) + 1}"></h1>
+	<h1 th:if="${accountName != null}" th:text="${accountName}"></h1>
+
+	<div>
+		<form action="" method="post">
+		
+			<div th:if="${accountName != null}">
+				Account Name: <input type="text" th:field="${account.accountName}" />
+			</div>
+			<div th:if="${accountName == null}">
+				Account Name: <input type="text" th:field="${account.accountName}" />
+			</div>
+			<div>
+				<input type="submit" value="Save Account" />
+			</div>
+		</form>
+
+	</div>
+	<a th:href="@{/users/{userId}(userId=${userId})}"><button>back</button></a>
+</body>
+</html>
